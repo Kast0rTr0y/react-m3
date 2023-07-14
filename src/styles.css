@@ -1,0 +1,11 @@
+:root {
+  --md-ref-typeface-plain: system-ui;
+}
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
