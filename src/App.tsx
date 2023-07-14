@@ -32,6 +32,7 @@ import M3MenuItem from "material/react/M3MenuItem";
 import M3Slider from "material/react/M3Slider";
 import M3Tabs from "material/react/M3Tabs";
 import M3Tab from "material/react/M3Tab";
+import Picker from "./colors/picker";
 
 export default function App() {
   const ancorRef = React.useRef(null);
@@ -39,6 +40,13 @@ export default function App() {
 
   return (
     <div className="App">
+      <div style={{flex:'1 0 100%',display:"flex"}}>
+        <Picker colorName={"primaryColor"}/>
+        <Picker colorName={"secondaryColor"}/>
+        <Picker colorName={"tertiaryColor"}/>
+        <Picker colorName={"neutralColor"}/>
+        <Picker colorName={"neutralVariantColor"}/>
+      </div>
       <M3ElevatedButton>Text</M3ElevatedButton>
       <M3ElevatedButton icon="edit">Text</M3ElevatedButton>
       <M3ElevatedButton icon="edit" trailingIcon>

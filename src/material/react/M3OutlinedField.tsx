@@ -43,7 +43,7 @@ export default function M3TextButton({
         value={value}
         onChange={(e) => setValue(e.target.value)}
         disabled={disabled}
-        style={{ outline: "none", border: "none" }}
+        style={{ outline: "none", border: "none", background: 'transparent' }}
       />
       {endIcon && <Icon slot="end">{endIcon}</Icon>}
     </MdOutlinedField>

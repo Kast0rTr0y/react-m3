@@ -1,5 +1,12 @@
 :root {
+  color-scheme: light dark;
   --md-ref-typeface-plain: system-ui;
+  --md-sys-color-background: white;
+  --md-sys-color-on-background: black
+}
+body {
+  background-color: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-background);
 }
 .App {
   font-family: sans-serif;
