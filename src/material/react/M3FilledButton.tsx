@@ -3,7 +3,7 @@ import FilledButton from "material/web/MdFilledButton";
 import Icon from "material/web/MdIcon";
 
 interface M3FilledButtonProps {
-  onClick?: () => {};
+  onClick?: () => void;
   trailingIcon?: boolean;
   children?: React.ReactNode;
   icon?: string;

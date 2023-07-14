@@ -163,9 +163,9 @@ export default function App() {
         <M3SelectOption headline="test1" />
         <M3SelectOption headline="test2" />
       </M3FilledSelect>
-      <M3LinearProgress progress="0.4" />
+      <M3LinearProgress progress={0.4} />
       <M3LinearProgress indeterminate />
-      <M3CircularProgress progress="0.7" />
+      <M3CircularProgress progress={0.7} />
       <M3CircularProgress indeterminate />
       <M3Divider />
       <M3Divider inset />
@@ -203,7 +203,7 @@ export default function App() {
       <div style={{ position: "absolute" }} ref={ancorRef}></div>
       <FilledButton
         onClick={() => {
-          menuRef.current.show();
+          if(menuRef.current) menuRef.current.show();
         }}
       >
         Open menu

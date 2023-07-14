@@ -11,4 +11,4 @@ export default createComponent({
   }
 });
 
-export { Variant, FabSize };
+export type { Variant, FabSize };
