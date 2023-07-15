@@ -6,7 +6,7 @@ interface OutlinedIconButtonProps {
   disabled?: boolean;
   toggle?: boolean;
   selected?: boolean;
-  icon?: string;
+  icon: string;
   selectedIcon?: string;
   onClick?: () => void;
 }
@@ -19,7 +19,6 @@ export default function M3OutlinedIconButton({
   selectedIcon,
   onClick
 }: OutlinedIconButtonProps) {
-  React.useEffect(()=>{console.log("M3OutlinedIconButton")},[selected])
   return (
     <OutlinedIconButton onClick={onClick} toggle={toggle} disabled={disabled} selected={selected}>
       <Icon>{icon}</Icon>
