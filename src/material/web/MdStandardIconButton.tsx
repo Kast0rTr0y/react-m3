@@ -7,6 +7,8 @@ export default createComponent({
   elementClass: MdStandardIconButton,
   react: React,
   events: {
-    onclick: "click"
+    onClick: "click"
   }
 });
+
+export type {MdStandardIconButton};

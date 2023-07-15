@@ -33,11 +33,25 @@ import M3Slider from "material/react/M3Slider";
 import M3Tabs from "material/react/M3Tabs";
 import M3Tab from "material/react/M3Tab";
 import Picker from "./colors/picker";
+import M3FilledTextField from "./material/react/M3FilledTextField";
+import M3OutlinedTextField from "./material/react/M3OutlinedTextField";
 
 export default function App() {
   const ancorRef = React.useRef(null);
   const menuRef = React.createRef<any>();
-
+  const [selected,setSelected] = React.useState(true);
+  React.useEffect(()=>{
+      // fetch("https://kedo1.tst.ecm.citros.ru/alfresco/s/api/kedo/mobile/login", {headers:{"Content-Type":"application/json"},method:"POST",body:'{"username":"admin","password":"admin"}'}).then(res=>{
+      //     console.log(res)
+      // }).catch(e=>{
+      //     console.log(e)
+      // })
+      // fetch("http://192.168.1.3:60913/realms/pny-web/protocol/openid-connect/token", {headers:{"Content-Type":"application/x-www-form-urlencoded"},method:"POST",body:'client_id=pny&grant_type=password&username=test&password=test&scope=offline_access'}).then(res=>{
+      //     res.json().then(res=>{
+      //         console.log(res);
+      //     })
+      // });
+  },[])
   return (
     <div className="App">
       <div style={{flex:'1 0 100%',display:"flex"}}>
@@ -110,12 +124,20 @@ export default function App() {
         endIcon="edit"
       />
       <M3StandardIconButton icon="edit" />
-      <M3OutlinedIconButton icon="add" />
-      <M3FilledIconButton icon="edit" />
-      <M3FilledTonalIconButton icon="add" />
+      <M3StandardIconButton toggle icon="edit" />
+      <M3StandardIconButton toggle icon="left_panel_open" selectedIcon="left_panel_close" />
       <M3StandardIconButton disabled icon="edit" />
+      <M3OutlinedIconButton icon="add" />
+      <M3OutlinedIconButton toggle icon="add" />
+      <M3OutlinedIconButton toggle selected={selected} onClick={()=>{console.log("1");setSelected(p=>!p)}} icon="left_panel_open" selectedIcon="left_panel_close" />
       <M3OutlinedIconButton disabled icon="add" />
+      <M3FilledIconButton icon="edit" />
+      <M3FilledIconButton toggle icon="edit" />
+      <M3FilledIconButton toggle icon="left_panel_open" selectedIcon="left_panel_close" />
       <M3FilledIconButton disabled icon="edit" />
+      <M3FilledTonalIconButton icon="add" />
+      <M3FilledTonalIconButton toggle icon="add" />
+      <M3FilledTonalIconButton toggle icon="left_panel_open" selectedIcon="left_panel_close" />
       <M3FilledTonalIconButton disabled icon="add" />
       <M3Checkbox />
       <M3Checkbox checked />
@@ -173,8 +195,8 @@ export default function App() {
       </M3FilledSelect>
       <M3LinearProgress progress={0.4} />
       <M3LinearProgress indeterminate />
-      <M3CircularProgress progress={0.7} />
-      <M3CircularProgress indeterminate />
+      <M3CircularProgress style={{width:50,height:50}} progress={0.7} />
+      <M3CircularProgress style={{width:50,height:50}} indeterminate />
       <M3Divider />
       <M3Divider inset />
       <M3Divider insetStart />
@@ -273,6 +295,8 @@ export default function App() {
         <M3Tab>Test4</M3Tab>
         <M3Tab>Test5</M3Tab>
       </M3Tabs>
+      <M3FilledTextField label={"label"}/>
+      <M3OutlinedTextField label={"label"}/>
     </div>
   );
 }

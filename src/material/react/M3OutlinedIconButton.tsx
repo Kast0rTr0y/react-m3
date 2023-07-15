@@ -4,16 +4,26 @@ import Icon from "material/web/MdIcon";
 
 interface OutlinedIconButtonProps {
   disabled?: boolean;
+  toggle?: boolean;
+  selected?: boolean;
   icon?: string;
+  selectedIcon?: string;
+  onClick?: () => void;
 }
 
-export default function M3StandardIconButton({
+export default function M3OutlinedIconButton({
   disabled,
-  icon
+  toggle,
+  selected,
+  icon,
+  selectedIcon,
+  onClick
 }: OutlinedIconButtonProps) {
+  React.useEffect(()=>{console.log("M3OutlinedIconButton")},[selected])
   return (
-    <OutlinedIconButton disabled={disabled}>
+    <OutlinedIconButton onClick={onClick} toggle={toggle} disabled={disabled} selected={selected}>
       <Icon>{icon}</Icon>
+      {selectedIcon && <Icon slot="selectedIcon">{selectedIcon}</Icon>}
     </OutlinedIconButton>
   );
 }
