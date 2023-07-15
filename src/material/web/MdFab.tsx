@@ -1,5 +1,5 @@
 import * as React from "react";
-import { MdFab, Variant, FabSize } from "@material/web/fab/fab";
+import { MdFab } from "@material/web/fab/fab";
 import { createComponent } from "@lit-labs/react";
 
 export default createComponent({
@@ -10,5 +10,3 @@ export default createComponent({
     onclick: "click"
   }
 });
-
-export type { Variant, FabSize };
