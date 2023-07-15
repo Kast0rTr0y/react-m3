@@ -7,6 +7,7 @@ interface M3CheckboxProps {
   disabled?: boolean;
   indeterminate?: boolean;
   value?: string;
+  onClick?: ()=>void;
 }
 
 export default function M3Checkbox({
@@ -14,7 +15,8 @@ export default function M3Checkbox({
   checked,
   disabled,
   indeterminate,
-  value
+  value,
+  onClick
 }: M3CheckboxProps) {
-  return <MdCheckbox error={error} disabled={disabled} checked={checked} indeterminate={indeterminate} value={value} />;
+  return <MdCheckbox onClick={onClick} error={error} disabled={disabled} checked={checked} indeterminate={indeterminate} value={value} />;
 }
