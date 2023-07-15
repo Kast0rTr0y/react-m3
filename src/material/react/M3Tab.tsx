@@ -10,11 +10,12 @@ interface M3TabProps {
   inlineIcon?: boolean;
   children?: React.ReactNode;
   icon?: string;
+  onClick?: () => void;
 }
 
-export default function M3Tab({ inlineIcon, children, icon, variant = '', disabled, selected, focusable }: M3TabProps) {
+export default function M3Tab({ inlineIcon, children, icon, variant = '', disabled, selected, focusable, onClick }: M3TabProps) {
   return (
-    <Tab variant={variant} inlineIcon={inlineIcon} disabled={disabled} selected={selected} focusable={focusable}>
+    <Tab onClick={onClick} variant={variant} inlineIcon={inlineIcon} disabled={disabled} selected={selected} focusable={focusable}>
       {children}
       {icon && <Icon slot="icon">{icon}</Icon>}
     </Tab>
