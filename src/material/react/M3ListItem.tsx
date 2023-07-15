@@ -12,6 +12,8 @@ interface M3ListItemProps {
   multiLineSupportingText?: boolean;
   iconStart?: string;
   iconEnd?: string;
+  itemTabIndex?: number;
+  type?: 'listitem' | 'menuitem' | 'option' | 'link' | 'none';
 }
 
 export default function M3ListItem({
@@ -23,7 +25,9 @@ export default function M3ListItem({
   trailingSupportingText,
   multiLineSupportingText,
   iconStart,
-  iconEnd
+  iconEnd,
+  itemTabIndex,
+  type
 }: M3ListItemProps) {
   return (
     <ListItem
@@ -34,6 +38,8 @@ export default function M3ListItem({
       supportingText={supportingText}
       trailingSupportingText={trailingSupportingText}
       multiLineSupportingText={multiLineSupportingText}
+      itemTabIndex={itemTabIndex}
+      type={type}
     >
       {iconStart && <Icon slot="start">{iconStart}</Icon>}
       {iconEnd && <Icon slot="end">{iconEnd}</Icon>}
