@@ -3,20 +3,24 @@ import FilledButton from "material/web/MdFilledButton";
 import Icon from "material/web/MdIcon";
 
 interface M3FilledButtonProps {
-  onClick?: () => void;
+  disabled?: boolean;
   trailingIcon?: boolean;
   children?: React.ReactNode;
   icon?: string;
+  onClick?: ()=>void;
+  type?: '' | 'submit' | 'reset';
 }
 
 export default function M3FilledButton({
-  onClick,
+  disabled,
   trailingIcon,
   children,
-  icon
+  icon,
+  onClick,
+  type
 }: M3FilledButtonProps) {
   return (
-    <FilledButton onClick={onClick} trailingIcon={trailingIcon}>
+    <FilledButton type={type} disabled={disabled} onClick={onClick} trailingIcon={trailingIcon}>
       {children}
       {icon && <Icon slot="icon">{icon}</Icon>}
     </FilledButton>
