@@ -5,5 +5,8 @@ import { createComponent } from "@lit-labs/react";
 export default createComponent({
   tagName: "md-filled-text-field",
   elementClass: MdFilledTextField,
-  react: React
+  react: React,
+  events: {
+    onChange: 'input'
+  }
 });

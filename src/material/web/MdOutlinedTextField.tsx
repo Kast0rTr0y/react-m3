@@ -5,5 +5,8 @@ import { createComponent } from "@lit-labs/react";
 export default createComponent({
   tagName: "md-outlined-text-field",
   elementClass: MdOutlinedTextField,
-  react: React
+  react: React,
+  events: {
+    onChange: 'input'
+  }
 });
