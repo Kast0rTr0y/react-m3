@@ -7,16 +7,18 @@ interface M3SuggestionChipProps {
   elevated?: boolean;
   disabled?: boolean;
   icon?: string;
+  onClick?: () => void;
 }
 
 export default function M3SuggestionChip({
   label,
   elevated,
   disabled,
-  icon
+  icon,
+  onClick
 }: M3SuggestionChipProps) {
   return (
-    <MdSuggestionChip label={label} elevated={elevated} disabled={disabled}>
+    <MdSuggestionChip onClick={onClick} label={label} elevated={elevated} disabled={disabled}>
       {icon && <MdIcon slot="icon">{icon}</MdIcon>}
     </MdSuggestionChip>
   );

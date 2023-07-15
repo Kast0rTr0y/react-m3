@@ -7,16 +7,18 @@ interface M3AssistChipProps {
   elevated?: boolean;
   disabled?: boolean;
   icon?: string;
+  onClick?: () => void;
 }
 
 export default function M3AssistChip({
   label,
   elevated,
   disabled,
-  icon
+  icon,
+  onClick
 }: M3AssistChipProps) {
   return (
-    <MdAssistChip label={label} elevated={elevated} disabled={disabled}>
+    <MdAssistChip onClick={onClick} label={label} elevated={elevated} disabled={disabled}>
       {icon && <MdIcon slot="icon">{icon}</MdIcon>}
     </MdAssistChip>
   );
