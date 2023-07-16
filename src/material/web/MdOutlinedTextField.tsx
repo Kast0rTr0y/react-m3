@@ -10,3 +10,5 @@ export default createComponent({
     onChange: 'input'
   }
 });
+
+export type {MdOutlinedTextField}

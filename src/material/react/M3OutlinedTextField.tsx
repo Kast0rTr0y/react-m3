@@ -1,5 +1,6 @@
 import * as React from "react";
-import OutlinedTextField from "material/web/MdOutlinedTextField";
+import OutlinedTextField, {MdOutlinedTextField} from "material/web/MdOutlinedTextField";
+import {useRef} from "react";
 
 interface OutlinedTextFieldProps {
   disabled?: boolean;
@@ -19,13 +20,25 @@ interface OutlinedTextFieldProps {
   placeholder?: string;
   readOnly?: boolean;
   onChange?: (e:any)=>void;
+  style?: React.CSSProperties;
+  type?: 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url';
+  step?: string;
 }
 
-export default function M3FilledSelect({
+export default function M3OutlinedTextField({
   disabled, error, errorText, label, required, value = '', prefixText, suffixText, supportingText, max, maxLength = -1,
-  min, minLength, pattern, placeholder, readOnly, onChange
+  min, minLength, pattern, placeholder, readOnly, onChange, style, type, step
 }: OutlinedTextFieldProps) {
-  return <OutlinedTextField onChange={onChange}
+  const ref = useRef<MdOutlinedTextField>(null);
+  function validate() {
+    if(error === undefined) {
+      ref.current?.reportValidity();
+    }
+  }
+  React.useEffect(()=>{
+    validate();
+  },[value])
+  return <OutlinedTextField ref={ref} style={style} onChange={onChange} type={type} step={step}
     label={label} error={error} errorText={errorText} disabled={disabled} required={required} value={value}
     prefixText={prefixText} suffixText={suffixText} supportingText={supportingText} max={max} maxLength={maxLength}
     min={min} minLength={minLength} pattern={pattern} placeholder={placeholder} readOnly={readOnly}

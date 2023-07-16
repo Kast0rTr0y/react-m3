@@ -1,5 +1,6 @@
 import * as React from "react";
-import FilledTextField from "material/web/MdFilledTextField";
+import FilledTextField, {MdFilledTextField} from "material/web/MdFilledTextField";
+import {useRef} from "react";
 
 interface M3FilledTextFieldProps {
   disabled?: boolean;
@@ -19,13 +20,25 @@ interface M3FilledTextFieldProps {
   placeholder?: string;
   readOnly?: boolean;
   onChange?: (e:any)=>void;
+  style?: React.CSSProperties;
+  type?: 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url';
+  step?: string;
 }
 
-export default function M3FilledSelect({
+export default function M3FilledTextField({
   disabled, error, errorText, label, required, value = '', prefixText, suffixText, supportingText, max, maxLength = -1,
-  min, minLength, pattern, placeholder, readOnly, onChange
+  min, minLength, pattern, placeholder, readOnly, onChange, style, type, step
 }: M3FilledTextFieldProps) {
-  return <FilledTextField onChange={onChange}
+  const ref = useRef<MdFilledTextField>(null);
+  function validate() {
+    if(error === undefined) {
+      ref.current?.reportValidity();
+    }
+  }
+  React.useEffect(()=>{
+    validate();
+  },[value])
+  return <FilledTextField ref={ref} style={style} onChange={onChange} type={type} step={step}
     label={label} error={error} errorText={errorText} disabled={disabled} required={required} value={value}
     prefixText={prefixText} suffixText={suffixText} supportingText={supportingText} max={max} maxLength={maxLength}
     min={min} minLength={minLength} pattern={pattern} placeholder={placeholder} readOnly={readOnly}
