@@ -5,8 +5,5 @@ import { createComponent } from "@lit-labs/react";
 export default createComponent({
   tagName: "md-navigation-drawer",
   elementClass: MdNavigationDrawer,
-  react: React,
-  events: {
-    onclick: "click"
-  }
+  react: React
 });
